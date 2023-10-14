@@ -59,4 +59,24 @@ footer {
     padding: 10px;
 }
 
+/* Ajoutez ces styles pour les formes géométriques */
+.shape {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    pointer-events: none; /* Permet aux formes de ne pas interférer avec les interactions de la souris */
+}
+
+/* Ajoutez ces styles pour les formes géométriques */
+.shape {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    pointer-events: none; /* Permet aux formes de ne pas interférer avec les interactions de la souris */
+}
+
 /* Add more styles as needed */
