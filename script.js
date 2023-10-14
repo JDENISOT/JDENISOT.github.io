@@ -37,3 +37,4 @@ for (let i = 0; i < 10; i++) {
     const shape = createShape();
     moveShape(shape, window.innerWidth / 2, window.innerHeight / 2);
 }
+
