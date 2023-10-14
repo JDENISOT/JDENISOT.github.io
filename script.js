@@ -1,38 +1,39 @@
-// Ajoutez ici du code JavaScript si vous avez besoin d'interactivité
-
-// Par exemple, pour ajouter une animation de défilement doux pour les liens de navigation :
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-
-        if (targetSection) {
-            window.scrollTo({
-                behavior: 'smooth',
-                top: targetSection.offsetTop,
-            });
-        }
-    });
-});
-
-/* Ajoutez ces styles pour les formes géométriques */
-.shape {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #007BFF;
-    border-radius: 50%;
-    pointer-events: none; /* Permet aux formes de ne pas interférer avec les interactions de la souris */
+// Fonction pour créer une forme géométrique
+function createShape() {
+    const shape = document.createElement('div');
+    shape.classList.add('shape');
+    document.body.appendChild(shape);
+    return shape;
 }
 
-/* Ajoutez ces styles pour les formes géométriques */
-.shape {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #007BFF;
-    border-radius: 50%;
-    pointer-events: none; /* Permet aux formes de ne pas interférer avec les interactions de la souris */
+// Fonction pour déplacer la forme en fonction de la position de la souris
+function moveShape(shape, mouseX, mouseY) {
+    const xOffset = 10; // Ajustez ces valeurs pour la position initiale de la forme
+    const yOffset = 10;
+
+    const x = mouseX - xOffset;
+    const y = mouseY - yOffset;
+
+    shape.style.left = x + 'px';
+    shape.style.top = y + 'px';
+}
+
+// Fonction d'animation pour mettre à jour la position de la forme à chaque événement de la souris
+function animateShapes(event) {
+    const shapes = document.querySelectorAll('.shape');
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    shapes.forEach((shape) => {
+        moveShape(shape, mouseX, mouseY);
+    });
+}
+
+// Écoutez l'événement de mouvement de la souris
+document.addEventListener('mousemove', animateShapes);
+
+// Créez des formes géométriques initiales
+for (let i = 0; i < 10; i++) {
+    const shape = createShape();
+    moveShape(shape, window.innerWidth / 2, window.innerHeight / 2);
 }
